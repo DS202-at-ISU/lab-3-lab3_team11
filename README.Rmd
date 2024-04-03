@@ -57,7 +57,12 @@ returns$Time_returns <- parse_number(returns$Time_returns)
 head(returns)
 ```
 
-Based on these datasets calculate the average number of deaths an Avenger suffers. 
+Based on these datasets calculate the average number of deaths an Avenger suffers.
+```{r}
+avg <- colSums(returns == "YES")
+avg[13]/173
+```
+
 
 ## Individually
 

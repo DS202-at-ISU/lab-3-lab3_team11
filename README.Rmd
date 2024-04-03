@@ -103,5 +103,5 @@ filter(returns, Name.Alias == "Jocasta")[13:15]
 
 ### Include your answer
 
-**This data shows that Jocasta has indeed died 5 times and returned each time, which is consistant with the quote from the FiveThirtyEight article.**
+**This data shows that Jocasta has indeed died 5 times and returned each time, which is consistant with the quote from the FiveThirtyEight article. This was done by filtering out the rows with "Jocasta" as the Name.Alias, and then finding the columns with Death count and Time in them.**
 

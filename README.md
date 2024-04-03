@@ -195,5 +195,32 @@ was found by narrowing the results to first time deaths and returns and
 then dividing the count of people who returned by the total count of
 first deaths.
 
+### FiveThirtyEight Statement
+**Out of 173 listed Avengers, my analysis found that 69 had died at least one time after they joined the team. That’s about 40 percent of all people who have ever signed on to the team."**
+### Include the code
+```{r}
+#use original av data to get the 173 Avengers. Check for duplicate names
+num_unique_avengers <- av %>%
+        distinct(Name.Alias, .keep_all = TRUE)
+
+#keep only rows with a recorded death
+recorded_deaths <- num_unique_avengers %>%
+  pivot_longer(cols = starts_with("Death"),
+               names_to = "Time",
+               values_to = "Death") %>%
+               filter(Death == "YES")
+
+#count how many total avengers and how many died calculate percentage.
+num_avengers <- nrow(num_unique_avengers)
+num_deaths <- nrow(recorded_deaths)
+percent_died <- (num_deaths/num_avengers) * 100
+
+num_avengers
+num_deaths
+percent_died
+```
+### Include your answer
+**My analysis exposed an mistake in this statement. The authors of this analysis did not make sure that there were no duplicate avengers in the dataset (for exaple Thor Odinson showed up 2x). After keeping only rows with distinct avenger names there were only 163 listed avengers, 83 of which died at least once. That makes almost 51% of signees who have died at least once.**
+
 Upload your changes to the repository. Discuss and refine answers as a
 team.

@@ -172,17 +172,28 @@ possible.
 
 ### FiveThirtyEight Statement
 
-> Quote the statement you are planning to fact-check.
+“There’s a 2-in-3 chance that a member of the Avengers returned from
+their first stint in the afterlife”
 
 ### Include the code
 
-Make sure to include the code to derive the (numeric) fact for the
-statement
+``` r
+firsts <- subset(returns, returns$Time == 1)
+firsts <- subset(firsts, firsts$Time_returns == 1)
+firstreturn <- subset(firsts, firsts$Return == "YES")
+count(firstreturn) / count(firsts)
+```
+
+    ##           n
+    ## 1 0.6666667
 
 ### Include your answer
 
-Include at least one sentence discussing the result of your
-fact-checking endeavor.
+When it comes to return rate of first time deaths for the Avengers,
+there is exactly a 2 in 3 chance that if you die, you will return. This
+was found by narrowing the results to first time deaths and returns and
+then dividing the count of people who returned by the total count of
+first deaths.
 
 Upload your changes to the repository. Discuss and refine answers as a
 team.
